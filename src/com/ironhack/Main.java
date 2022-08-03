@@ -56,7 +56,7 @@ public class Main {
         System.out.println(counter);
 
         input.close();
-*/
+
 
         Scanner input = new Scanner(System.in);
 
@@ -66,7 +66,6 @@ public class Main {
         String text = input.nextLine();
 
         FileWriter writer = new FileWriter(fileName, true);
-
         writer.write(text + "\n");
 
         input.close();
@@ -83,6 +82,36 @@ public class Main {
                         System.out.println(word);
                     }
         }
+
+*/
+        File file = new File("oscar_female_list.csv");
+        Scanner reader = new Scanner(file);
+        FileWriter writer = new FileWriter("result.txt", true);
+
+        reader.nextLine();
+        while (reader.hasNextLine()) {
+            String line = reader.nextLine();
+            String[] columns = line.split(",");
+            writer.write(
+                    "Name: " + columns[3] + "\n" +
+                            "Year: " + columns[1] + "\n" +
+                            "Age: " + columns[2] + "\n" +
+                            "Movie: " + columns[4] + "\n" +
+                            "\n===========\n\n"
+            );
+
+            /*
+            Name: <name> 3
+            Year: <year> 1
+            Age: <age> 2
+            Movie: <movie> 4
+            ===============
+             */
+        }
+
+        writer.close();
+
+
 
     }
 
