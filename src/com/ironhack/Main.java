@@ -112,7 +112,7 @@ public class Main {
 
 
         CreditCard credit1 = new CreditCard("Jaume", 2000);
-    CreditCard credit2 = new CreditCard("Alejandro", 2500);
+        CreditCard credit2 = new CreditCard("Alejandro", 2500);
 
         System.out.println(credit1.getAccountHolder());
         System.out.println(credit2.getBalance());
@@ -128,6 +128,25 @@ public class Main {
 
         creditCard4.setAccountHolder("Antonio");
         System.out.println(creditCard4.getAccountHolder());
+
+        RewardCard rewardCard = new RewardCard("Maria", 2000, 50);
+        RewardCard rewardCard2 = new RewardCard("Maria", 1800, 50);
+
+        RewardCard.showDifference(rewardCard, rewardCard2);
+        System.out.println(RewardCard.getCounter());
+
+        System.out.println(rewardCard.getPoints());
+        System.out.println(rewardCard.getAccountHolder());
+
+
+        rewardCard.substractBalance(20);
+        rewardCard.addBalance(50);
+
+        CreditCard[] creditCards = {credit1, credit2, rewardCard};
+
+       if (creditCards[2] instanceof RewardCard) {
+           RewardCard  newCard = (RewardCard) creditCards[2];
+       }
 
     }
 

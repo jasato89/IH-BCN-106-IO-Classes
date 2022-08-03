@@ -4,17 +4,29 @@ public class CreditCard {
     private final double MAX_BALANCE = 2000;
     private String accountHolder;
     private double balance;
+    private double salary;
 
 
-    CreditCard() {
+    public CreditCard(double salary) {
+       this.setSalary(salary);
+
 
     }
-    CreditCard(String accountHolder, double balance) {
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public CreditCard(String accountHolder, double balance) {
         setAccountHolder(accountHolder);
         setBalance(balance);
     }
 
-    CreditCard(String accountHolder) {
+   public CreditCard(String accountHolder) {
         setAccountHolder(accountHolder);
     }
 
@@ -44,5 +56,8 @@ public class CreditCard {
 
     public void substractBalance() {
         this.balance -= 1.0;
+    }
+    public void addBalance(double balance) {
+        this.balance += balance;
     }
 }
