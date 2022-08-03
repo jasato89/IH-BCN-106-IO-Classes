@@ -83,7 +83,6 @@ public class Main {
                     }
         }
 
-*/
         File file = new File("oscar_female_list.csv");
         Scanner reader = new Scanner(file);
         FileWriter writer = new FileWriter("result.txt", true);
@@ -100,18 +99,35 @@ public class Main {
                             "\n===========\n\n"
             );
 
-            /*
+
             Name: <name> 3
             Year: <year> 1
             Age: <age> 2
             Movie: <movie> 4
             ===============
-             */
         }
 
         writer.close();
+             */
 
 
+        CreditCard credit1 = new CreditCard("Jaume", 2000);
+    CreditCard credit2 = new CreditCard("Alejandro", 2500);
+
+        System.out.println(credit1.getAccountHolder());
+        System.out.println(credit2.getBalance());
+        credit2.substractBalance();
+        System.out.println(credit2.getBalance());
+        credit2.substractBalance(25.0);
+        System.out.println(credit2.getBalance());
+
+        CreditCard creditCard3 = new CreditCard("Jose");
+        System.out.println(creditCard3.getBalance());
+        CreditCard creditCard4 = new CreditCard();
+        System.out.println(creditCard4.getAccountHolder());
+
+        creditCard4.setAccountHolder("Antonio");
+        System.out.println(creditCard4.getAccountHolder());
 
     }
 
