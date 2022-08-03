@@ -1,12 +1,15 @@
 package com.ironhack;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 /*
         Scanner input = new Scanner(System.in);
 
@@ -29,7 +32,6 @@ public class Main {
 
 
         input.close();
-*/
         Scanner input = new Scanner(System.in);
 
         System.out.println("Por favor, introduce tu frase");
@@ -54,6 +56,33 @@ public class Main {
         System.out.println(counter);
 
         input.close();
+*/
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("introduce el nombre del archivo");
+        String fileName = input.nextLine();
+        System.out.println("Introduce el texto que quieres");
+        String text = input.nextLine();
+
+        FileWriter writer = new FileWriter(fileName, true);
+
+        writer.write(text + "\n");
+
+        input.close();
+        writer.close();
+
+        File file = new File(fileName);
+
+        Scanner fileReader = new Scanner(file);
+
+        while (fileReader.hasNextLine()) {
+            String data = fileReader.nextLine();
+            String[] words = data.split(" ");
+                    for(String word : words) {
+                        System.out.println(word);
+                    }
+        }
 
     }
 
