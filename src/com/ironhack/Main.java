@@ -1,11 +1,13 @@
 package com.ironhack;
 
+import java.util.Locale;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
 
     public static void main(String[] args) {
-
+/*
         Scanner input = new Scanner(System.in);
 
         System.out.println("Por favor, introduce tu nombre");
@@ -27,5 +29,55 @@ public class Main {
 
 
         input.close();
+*/
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Por favor, introduce tu frase");
+
+        String phrase = input.nextLine();
+
+        String[] words = phrase.split(" ");
+        int counter = 0;
+
+        for (String word : words) {
+            word = word.toLowerCase();
+            if (word.startsWith("a")
+                    || word.startsWith("e")
+                    || word.startsWith("i")
+                    || word.startsWith("o")
+                    || word.startsWith("u")) {
+                counter++;
+            } else {
+                System.err.println("Word " + word + " doesn't start with a vowel");
+            }
+        }
+        System.out.println(counter);
+
+        input.close();
+
+    }
+
+    public static void findVowels() {
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        int count = 0;
+        String[] words = line.split(" ");
+
+        System.out.println("Please introduce a phrase to be counted");
+        Pattern pattern = Pattern.compile("(\\b[AaEeIiOoUu]+[\\w]*\\b)");
+
+
+        for (String word : words) {
+            if (pattern.matcher(word).find()) {
+                count++;
+            } else {
+                System.err.println("Word skipped " + word);
+            }
+        }
+
+        System.out.println("Words: " + count);
+
+        scanner.close();
     }
 }
+
